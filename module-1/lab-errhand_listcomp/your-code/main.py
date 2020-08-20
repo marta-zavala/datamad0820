@@ -9,6 +9,8 @@ print(my_listComprehension)
 #Insert here the module/library import statements 
 import math
 import random
+import os
+import sys
 
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
@@ -88,18 +90,16 @@ print(consonants)
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
 print("\nEjercicio 10:")
-
-
+files = [x for x in os.listdir('/Users/mac/Desktop/Ironhack/datamad0820')]
+print(files)
 
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
 print("\nEjercicio 11:")
-def aleatorio(a,b):
-    return [random.randint(a,b) for i in range (10)]
 
-random_lists =[aleatorio(0,101),aleatorio(0,101),aleatorio(0,101),aleatorio(0,101)]
+random_lists = [[random.randint(0,101) for i in range (10)] for i in range (4)]
 print(random_lists)
 
 
@@ -125,14 +125,13 @@ floats = [float(e) for sub in list_of_lists for e in sub]
 print(floats)
 
 
-
-
-'''
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 print("\nEjercicio 14:")
-
-for i in ['a','b','c']:
-    print i**2
+try:
+    for i in ['a','b','c']:
+        print (i**2)
+except Exception as e:
+    print(type(e))
 
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
@@ -140,43 +139,64 @@ for i in ['a','b','c']:
 # Check in provided resources the type of error you may use. 
 print("\nEjercicio 15:")
 
+
 x = 5
 y = 0
-
-z = x/y
-
+try:
+    z = x/y
+except ZeroDivisionError:
+    print("b no puede ser 0")
+finally:
+    print("All done")
 
 
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
+print("\nEjercicio 16:")
 
-abc=[10,20,20]
-print(abc[3])
+try:
+    abc=[10,20,20]
+    print(abc[3])
+except:
+    pass
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
 
+print("\nEjercicio 17:")
+
+print(ZeroDivisionError)
+print(TypeError)
 
 
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
-f = open('testfile','r')
-f.write('Test write this')
+print("\nEjercicio 18:")
 
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except:
+    pass
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
 
-fp = open('myfile.txt')
+print("\nEjercicio 19:")
+try:
+    fp = open('myfile.txt')
     line = f.readline()
     i = int(s.strip())
+except:
+    pass
+
 
 
 
@@ -186,11 +206,13 @@ fp = open('myfile.txt')
 # Handle this exception using try and except blocks. 
 # You will probably need to import sys 
 
+print("\nEjercicio 20:")
 def linux_interaction():
     assert ('linux' in sys.platform), "Function can only run on Linux systems."
     print('Doing something.')
 
 
+'''
 # Bonus Questions:
 
 # You will need to make some research on dictionary comprehension to solve the following questions
