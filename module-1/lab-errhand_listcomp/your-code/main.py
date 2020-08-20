@@ -212,7 +212,7 @@ def linux_interaction():
     print('Doing something.')
 
 
-'''
+
 # Bonus Questions:
 
 # You will need to make some research on dictionary comprehension to solve the following questions
@@ -220,13 +220,28 @@ def linux_interaction():
 #21.  Write a function that asks for an integer and prints the square of it. 
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
+print("\nEjercicio 21:")
 
+def square_input():
+     num = input("Introduce un número entero:")
+     print(int(num)**2)
+
+while True:
+    try:
+       square_input()
+       break
+    except Exception as e:
+        print("Algo ha fallado:")
+        print(e)
 
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
+print("\nEjercicio 22:")
 
+results=[[i for i in range (1000) if i%j==0] for j in range (2,10)]
+print(results)
 
 
 
@@ -236,4 +251,4 @@ def linux_interaction():
 
 Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
-'''
+
