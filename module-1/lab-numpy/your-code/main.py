@@ -9,6 +9,8 @@ print(np.version.version)
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 a = np.random.random((2,3,5))
+a = np.random.rand(2,3,5)
+a = np.random.randint(5,size=(2,3,5))
 
 
 #4. Print a.
@@ -38,7 +40,7 @@ c=(b.T).reshape(2,3,5)
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-d=sum(a,c)
+d=a+c
 print("a y c se pueden sumar porque tienen la misma dimensión: 2x3x5")
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
@@ -61,12 +63,16 @@ d_max = np.max(d)
 d_min = np.min(d)
 d_mean = np.mean(d)
 
-print(d_max, d_min, d_mean)
+print("d_max =", d_max)
+print("d_min =", d_min)
+print("d_mean =", d_mean)
 
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
+
 f = np.empty((2,3,5))
+
 
 
 
@@ -79,18 +85,19 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-for i in f:
-        if i==d_min:
-                f(i)=0
-        elif i<d_mean:
-                f(i)=25
-        elif i==d_mean:
-                f(i)=50
-        elif i<d_max:
-                f(i)=75
-        else:
-                f(i)=100
-print(f)
+for i in range (2):
+        for j in range (3):
+                for k in range (5):
+                        if d[i,j,k]==d_min:
+                                f[i,j,k]=0
+                        elif d[i,j,k]<d_mean:
+                                f[i,j,k]=25
+                        elif d[i,j,k]==d_mean:
+                                f[i,j,k]=50
+                        elif d[i,j,k]<d_max:
+                                f[i,j,k]=75
+                        else:
+                                f[i,j,k]=100
 
 
 
@@ -115,7 +122,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print("d =", d)
+print("f =", f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -129,3 +137,18 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+f=np.char.mod('%d', f)
+for i in range (2):
+        for j in range (3):
+                for k in range (5):
+                        if f[i,j,k]=='0':
+                                f[i,j,k]="A"
+                        elif f[i,j,k]=='25':
+                                f[i,j,k]="B"
+                        elif f[i,j,k]=='50':
+                                f[i,j,k]="C"
+                        elif f[i,j,k]=='75':
+                                f[i,j,k]="D"
+                        else:
+                                f[i,j,k]="E"
+print("f =", f)
