@@ -94,6 +94,7 @@ print(f)
 
 
 
+
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
