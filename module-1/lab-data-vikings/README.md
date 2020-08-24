@@ -297,7 +297,7 @@ Returns the current status of the `War` based on the size of the armies.
 - should be a function
 - should receive **0 arguments**
 - **if the `Saxon` array is empty**, should return _**"Vikings have won the war of the century!"**_
-- **if the `Viking` array is empty**, should return _**"Saxons have fought for their lives and survive another day..."**_
+- **if the `Viking` array is empty**, should return _**"Saxons have fought for their lives and survive another day..."
 - **if there are at least 1 `Viking` and 1 `Saxon`**, should return _**"Vikings and Saxons are still in the thick of battle."**_
 
 ## Deliverables
