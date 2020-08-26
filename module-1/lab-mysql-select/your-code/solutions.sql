@@ -32,7 +32,18 @@ SELECT au.au_id as 'AUTHOR ID', au.au_lname AS 'LAST NAME', au.au_fname AS 'FIRS
 	INNER JOIN sales AS s
 		ON tta.title_id = s.title_id
     GROUP BY au.au_id
-    ORDER BY SUM(s.qty) DESC LIMIT 3;
+    ORDER BY SUM(s.qty) DESC LIMIT 3
 
 
 /*  CHALLENGE 4  */
+
+SELECT au.au_id as 'AUTHOR ID', au.au_lname AS 'LAST NAME', au.au_fname AS 'FIRST NAME', IFNULL(SUM(s.qty),0) AS 'TOTAL'
+	FROM authors as au
+	LEFT JOIN titleauthor AS tta
+		ON au.au_id = tta.au_id
+	LEFT JOIN sales AS s
+		ON tta.title_id = s.title_id
+    GROUP BY au.au_id
+    ORDER BY IFNULL(SUM(s.qty),0) DESC
+
+
