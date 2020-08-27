@@ -47,3 +47,4 @@ SELECT au.au_id as 'AUTHOR ID', au.au_lname AS 'LAST NAME', au.au_fname AS 'FIRS
     ORDER BY IFNULL(SUM(s.qty),0) DESC
 
 
+
