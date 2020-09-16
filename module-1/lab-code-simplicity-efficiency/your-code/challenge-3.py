@@ -14,4 +14,7 @@ Refactor the code based on what you have learned about code simplicity and effic
 
 X = int(input("What is the maximal length of the triangle side? Enter a number: "))
 
-print(f"The longest side possible is {max([[x,y,z] for x in range(5,X) for y in range(4,X) for z in range(3,X) if (x*x==y*y+z*z)])}")
+try:
+    print(f"The longest side possible is {max([[x,y,z] for x in range(5,X) for y in range(4,X) for z in range(3,X) if (x*x==y*y+z*z)])}")
+except:
+    print('0')
