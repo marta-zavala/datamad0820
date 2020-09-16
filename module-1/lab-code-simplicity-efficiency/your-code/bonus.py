@@ -13,7 +13,7 @@ The following class calculates the total ways to climb a stair with the specifie
 It also counts the number of calculations performed which indicates the efficiency of the code.
 Try if you can improve the performance of the code.
 """
-
+'''
 class ClimbStairs:
     """
     Class constructor
@@ -50,7 +50,8 @@ class ClimbStairs:
     def solve(self):
         return self.calc_solutions(0)
 
-total_steps = input("How many steps in the stair?")
-new_challenge = ClimbStairs(int(total_steps))
+total_steps = int(input("How many steps in the stair? "))
+new_challenge = ClimbStairs(total_steps)
 print('Ways to climb to top: ' + str(new_challenge.solve()))
 print('Total calculations performed: ' + str(new_challenge.get_calculation_count()))
+'''
